@@ -20,7 +20,7 @@
     "url": "https://github.com/vega/vega-canvas.git"
   },
   "scripts": {
-    "build": "npm run test && uglifyjs build/vega-canvas.js -c -m -o build/vega-canvas.min.js",
+    "build": "uglifyjs build/vega-canvas.js -c -m -o build/vega-canvas.min.js",
     "pretest": "rm -rf build && mkdir build && rollup -f umd -n vega -o build/vega-canvas.node.js -- index.js && rollup -f umd -n vega -o build/vega-canvas.js -- index.browser.js",
     "test": "tape 'test/**/*-test.js' && eslint index.js src test",
     "prepublishOnly": "npm run build",
@@ -30,9 +30,7 @@
     "eslint": "4",
     "rollup": "0.58.2",
     "tape": "4",
-    "uglify-js": "3",
-    "canvas": "^1.6.10",
-    "canvas-prebuilt": "^1.6.5-prerelease.1"
+    "uglify-js": "3"
   },
   "browser": {
     "./build/vega-canvas.node.js": "./build/vega-canvas.js",
